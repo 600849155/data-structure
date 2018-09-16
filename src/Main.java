@@ -71,6 +71,10 @@ public class Main {
         System.out.println(ll);
         ll.set(0,9);
         System.out.println(ll);
+        ll.remove(2);
+        System.out.println(ll);
+        ll.removeLast();
+        System.out.println(ll);
         /**
         * 二叉树
         */

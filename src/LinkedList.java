@@ -122,6 +122,31 @@ public class LinkedList<E> {
         return false;
     }
 
+    //从链表中删除index位置的元素
+    public E remove(int index){
+        if (index < 0 || index > size){
+            throw new IllegalArgumentException("Add failed.Illegal index");
+        }
+        Node prev = dummyHead;
+        Node delnode = dummyHead;
+        for (int i = 0;i < index;i++){
+            prev = prev.next;
+        }
+        delnode = prev.next;
+        prev.next = delnode.next;
+        delnode.next = null;
+        size --;
+        return prev.e;
+    }
+
+    public E removeFirst(){
+        return remove(0);
+    }
+
+    public E removeLast(){
+        return remove(size - 1);
+    }
+
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
