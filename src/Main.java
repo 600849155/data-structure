@@ -3,21 +3,35 @@ import java.util.Random;
 public class Main {
 
 
-//    private static double testQueue(Queue<Integer>q,int opCount){
-//        long startTime = System.nanoTime();
-//
-//        Random random = new Random();
-//        for (int i = 0;i < opCount;i ++){
-//            q.enqueue(random.nextInt(Integer.MAX_VALUE));//生成[0，int能表示最大值)的数
-//        }
-//        for(int i =0;i < opCount;i ++){
-//            q.dequeue();
-//        }
-//        long endTime = System.nanoTime();
-//
-//        return (endTime - startTime) / 1000000000.0;
-//    }
+    private static double testQueue(Queue<Integer>q,int opCount){
+        long startTime = System.nanoTime();
 
+        Random random = new Random();
+        for (int i = 0;i < opCount;i ++){
+            q.enqueue(random.nextInt(Integer.MAX_VALUE));//生成[0，int能表示最大值)的数
+        }
+        for(int i =0;i < opCount;i ++){
+            q.dequeue();
+        }
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime) / 1000000000.0;
+    }
+
+    private static double testStack(Stack<Integer>stack,int opCount){
+        long startTime = System.nanoTime();
+
+        Random random = new Random();
+        for (int i = 0;i < opCount;i ++){
+            stack.push(random.nextInt(Integer.MAX_VALUE));//生成[0，int能表示最大值)的数
+        }
+        for(int i =0;i < opCount;i ++){
+           stack.pop();
+        }
+        long endTime = System.nanoTime();
+
+        return (endTime - startTime) / 1000000000.0;
+    }
     public static void main(String[] args) {
         /**
          * 数组
@@ -50,7 +64,7 @@ public class Main {
         /**
          * 队列：数组队列和循环队列的比较
          */
-//        int opCount = 100000;
+        int opCount = 10000000;
 //
 //        ArrayQueue<Integer>arrayQueue = new ArrayQueue<>();
 //        double time1 = testQueue(arrayQueue,opCount);
@@ -62,19 +76,27 @@ public class Main {
         /**
          * 链表
          */
-        LinkedList<Integer>ll = new LinkedList<>();
-        for (int i =0;i<5;i++){
-            ll.addFirst(i);
-            System.out.println(ll);
-        }
-        ll.add(2,123);
-        System.out.println(ll);
-        ll.set(0,9);
-        System.out.println(ll);
-        ll.remove(2);
-        System.out.println(ll);
-        ll.removeLast();
-        System.out.println(ll);
+//        LinkedList<Integer>ll = new LinkedList<>();
+//        for (int i =0;i<5;i++){
+//            ll.addFirst(i);
+//            System.out.println(ll);
+//        }
+//        ll.add(2,123);
+//        System.out.println(ll);
+//        ll.set(0,9);
+//        System.out.println(ll);
+//        ll.remove(2);
+//        System.out.println(ll);
+//        ll.removeLast();
+//        System.out.println(ll);
+
+        ArrayStack<Integer>arrayStack = new ArrayStack<>();
+        double time1 = testStack(arrayStack,opCount);
+        System.out.println("ArrayStack, time: " + time1 + " s");
+
+        LinkedListStack<Integer>linkedListStack = new LinkedListStack<>();
+        double time2 = testStack(linkedListStack,opCount);
+        System.out.println("LinkedListStack, time: " + time2 + " s");
         /**
         * 二叉树
         */
