@@ -1,28 +1,30 @@
-import java.util.Stack;
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
 class Solution {
-    public boolean isValid(String s) {
-        Stack<Character>stack = new Stack<>();
+    public ListNode removeElements(ListNode head, int val) {
+        while (head != null && head.val == val){
+            ListNode delNode = head;
+            head = head.next;
+            delNode.next = null;
+        }
 
-        for (int i = 0;i<s.length();i++){
-            char c = s.charAt(i);
-           if (c == '(' || c == '[' || c == '{'){
-                stack.push(c);
+        if ( head == null)
+            return null;
+
+        ListNode prev = head;
+        while (prev.next != null){
+            if (prev.next.val == val){
+                prev.next = prev.next.next;
             }else {
-                if (stack.isEmpty())
-                    return false;
-                char topChar = stack.pop();
-                if (topChar != '(' && c ==')'){
-                    return false;
-                }
-                if (topChar != '[' && c == ']'){
-                    return false;
-                }
-                if (topChar != '{' && c =='}'){
-                    return false;
-                }
-
+                prev = prev.next;
             }
         }
-        return stack.isEmpty();
+            return head;
     }
 }
