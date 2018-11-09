@@ -1,3 +1,5 @@
+
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -7,7 +9,7 @@
  * }
  */
 class Solution3{
-    public ListNode removeElements(ListNode head, int val,int depth) {
+    public ListNode removeElements(ListNode head, int val, int depth) {
         String depthString = generateDepthString(depth);
         System.out.println(depthString);
         System.out.println("Call: remove " + val + " in " + head);

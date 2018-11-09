@@ -53,7 +53,7 @@ public class ArraySort {
         //基数
         int povit = arr[left];
         //一趟快速排序，即l = h，这时povit的位置就固定了，左边都是小于它的值，右边都是大于它的值。
-        while (l != h) {
+        while (l != h) {//哨兵ih没有相遇
             //从右边开始，通过高位角标h的自减，从最右位向低位逐一取出数组中的值。l < h排除了l=h情况
             while (povit < arr[h] && l < h) {
                 h--;
@@ -68,7 +68,7 @@ public class ArraySort {
                 l++;
             }
             //如果上面的循环结束，且l != h，说明左边出现大于povit元素，需要互换位置
-            if (l < h) {//当哨兵i和j没有相遇时
+            if (l < h) {//当哨兵i和h没有相遇时
                 swap(arr, l, h);
                 h++;
             }
