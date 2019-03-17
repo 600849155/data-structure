@@ -3,12 +3,11 @@ package Thread.ThreadLocal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.concurrent.Executor;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ParseDateDemo {
-//    private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+   //private static final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
     private static ThreadLocal<SimpleDateFormat>threadLocal = new ThreadLocal<SimpleDateFormat>();
     public static class ParseDate implements Runnable{
         int i = 0;

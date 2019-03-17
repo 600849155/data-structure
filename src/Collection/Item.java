@@ -1,4 +1,4 @@
-package exersise;
+package Collection;
 
 import java.util.Objects;
 

@@ -8,5 +8,14 @@ public class StringE {
         System.out.println(s2 == s3);   //false
         System.out.println(s2.equals(s3));//true
 
+        System.gc();
+        Thread a = new Thread();
+        a.start();
+
+
+
+         int i=10;
+
+
     }
 }
