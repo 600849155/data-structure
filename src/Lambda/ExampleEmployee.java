@@ -1,8 +1,9 @@
 package Lambda;
 
-import org.junit.Test;
+
 
 import java.util.*;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -46,44 +47,48 @@ public class ExampleEmployee {
         //看看实体类添加进去没
         //employeeList.forEach((employee)-> System.out.println(employee.getName() +"，"+employee.getSalary()+","+employee.getOffice()));
 
-        //anyMatch
+        System.out.println("\n//anyMatch");
         for (Employee employee:employeeList){
             if (employee.getOffice().equals("London")){
                 System.out.println("true");
             }
         }
 
-        //anyMatch 如果有一个match就返回true
+        System.out.println("\n//anyMatch 如果有一个match就返回true");
         boolean isMatch = employeeList.stream().anyMatch(employee -> employee.getOffice().equals("London"));
         System.out.println(isMatch);
 
-        //如果所有实体类都match则返回true
+        System.out.println("\n //如果所有实体类都match则返回true");
         System.out.println(employeeList.stream().allMatch(employee -> employee.getSalary() > 6000));
 
-        //找出工资最高
+        System.out.println("\n //找出工资最高");
         Optional<Employee> hightestSalary = employeeList.stream().max((e1, e2) -> Integer.compare(e1.getSalary(), e2.getSalary()));
         System.out.println(hightestSalary);
 
-
-        //返回姓名列表
+        System.out.println("\n //返回姓名列表");
         List<String> names = employeeList.stream().map(employee -> employee.getName()).collect(Collectors.toList());
         System.out.println(names);
 
-        //------------------------List转换成Map--------------
+        System.out.println("\n //------------------------List转换成Map--------------");
         Map<String, Employee> employeeMap = employeeList.stream().collect(Collectors.toMap((key -> key.getName()), (value -> value)));
         employeeMap.forEach((key, value) -> System.out.println(key + "=" + value));
-//
-//        //统计办公室是New York的个数
-//        long officeCount = employeeList.stream().filter(employee -> employee.getOffice().equals("Shanghai")).count();
-//        System.out.println(officeCount);
-//
-//        //List转换为Set
-//        Set<String> officeSet = employeeList.stream().map(employee -> employee.getOffice()).distinct().collect(Collectors.toSet());
-//        System.out.println(officeSet);
-//
-//        //查找办公室地点是New York的员工
-//        Optional<Employee> allMatchedEmployees = employeeList.stream().filter(employee -> employee.getOffice().equals("New York")).findAny();
-//        System.out.println(allMatchedEmployees);
+
+        System.out.println("\n <name,salary>");
+        Map<String,Integer>name2SalaryMap = employeeList.stream().collect(Collectors.toMap(Employee::getName,Employee::getSalary));
+        name2SalaryMap.forEach((key,value) -> System.out.println(key + "=" + value));
+
+
+        System.out.println("\n //统计办公室是New York的个数");
+        long officeCount = employeeList.stream().filter(employee -> employee.getOffice().equals("New York")).count();
+        System.out.println(officeCount);
+
+        System.out.println("\n //List转换为Set");
+        Set<String> officeSet = employeeList.stream().map(employee -> employee.getOffice()).distinct().collect(Collectors.toSet());
+        System.out.println(officeSet);
+
+        System.out.println("\n  //查找办公室地点是New York的员工");
+        Optional<Employee> allMatchedEmployees = employeeList.stream().filter(employee -> employee.getOffice().equals("New York")).findAny();
+        System.out.println(allMatchedEmployees);
 //
 //        //按照工资的降序来列出员工信息
 //        List<Employee> sortEmployeeList = employeeList.stream().sorted((e1, e2) -> Integer.compare(e2.getSalary(), e1.getSalary())).collect(Collectors.toList());
