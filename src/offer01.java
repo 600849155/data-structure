@@ -1,4 +1,4 @@
-package exersise;
+package com.exersise;
 
 public class offer01 {
     public boolean Find(int target, int [][] array) {

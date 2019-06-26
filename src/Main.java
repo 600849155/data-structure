@@ -36,7 +36,7 @@ public class Main {
         /**
          * 数组
          */
-//        Array<Integer> arr = new Array<>();
+//        Array<com.Integer> arr = new Array<>();
 //        for (int i = 0;i<10;i++){
 //            arr.addLast(i);
 //        }
@@ -54,7 +54,7 @@ public class Main {
         /**
          * 栈
          */
-//        ArrayStack<Integer> arrayStack = new ArrayStack<>();
+//        ArrayStack<com.Integer> arrayStack = new ArrayStack<>();
 //        for (int i =0;i<5;i++){
 //            arrayStack.push(i);
 //            System.out.println(arrayStack);
@@ -66,17 +66,17 @@ public class Main {
          */
         int opCount = 10000000;
 //
-//        ArrayQueue<Integer>arrayQueue = new ArrayQueue<>();
+//        ArrayQueue<com.Integer>arrayQueue = new ArrayQueue<>();
 //        double time1 = testQueue(arrayQueue,opCount);
 //        System.out.println("ArrayQueue, time: " + time1 + " s");
 //
-//        LoopQueue<Integer>loopQueue = new LoopQueue<>();
+//        LoopQueue<com.Integer>loopQueue = new LoopQueue<>();
 //        double time2 = testQueue(loopQueue,opCount);
 //        System.out.println("LoopQueue, time: " + time2 + " s");
         /**
          * 链表
          */
-//        LinkedList<Integer>ll = new LinkedList<>();
+//        LinkedList<com.Integer>ll = new LinkedList<>();
 //        for (int i =0;i<5;i++){
 //            ll.addFirst(i);
 //            System.out.println(ll);
@@ -100,7 +100,7 @@ public class Main {
         /**
         * 二叉树
         */
-//        BST<Integer>bst = new BST<Integer>();
+//        BST<com.Integer>bst = new BST<com.Integer>();
 //        int[] nums = {5,3,6,8,4,2};
 //        for (int num:nums)
 //            bst.add(num);
