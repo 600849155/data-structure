@@ -28,94 +28,94 @@ public class LinkedList<E> {
     private int size;
 
     public LinkedList() {
-        dummyHead = new Node(null,null);
+        dummyHead = new Node(null, null);
         size = 0;
     }
 
     //获取链表中的元素个数
-    public int getSize(){
+    public int getSize() {
         return size;
     }
 
     //返回链表是否为空
-    public boolean isEmpty(){
+    public boolean isEmpty() {
         return size == 0;
     }
 
 
-
     //在链表的index（0-based）位置添加新的元素e
     //在链表中不是一个常用的操作，联系用：）
-    public void add(int index,E e){
+    public void add(int index, E e) {
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed.Illegal index");
 
 
-            Node prev = dummyHead;
-            for (int i = 0;i < index;i ++){
-                prev = prev.next;
-            }
+        Node prev = dummyHead;
+        for (int i = 0; i < index; i++) {
+            prev = prev.next;
+        }
 //            Node node = new Node(e);
 //            node.next = prev.next;
 //            prev.next = node;
-              prev.next = new Node(e,prev.next);
-            size ++;
+        prev.next = new Node(e, prev.next);
+        size++;
 
     }
 
 
     //链表头添加新的元素e
-    public void addFirst(E e){
+    public void addFirst(E e) {
 //        Node node = new Node(e);
 //        node.next = head;
 //        head = node;
-        add(0,e);
+        add(0, e);
     }
 
     //在链表末尾添加新的元素e
-    public void addLast(E e){
-        add(size,e);
+    public void addLast(E e) {
+        add(size, e);
     }
 
     //获得链表中索引为index的元素
-    public E get(int index){
+    public E get(int index) {
         if (index < 0 || index > size)
             throw new IllegalArgumentException("Add failed.Illegal index");
 
         Node cur = dummyHead.next;
-        for (int i = 0;i < index;i ++){
+        for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
         return cur.e;
     }
 
     //获得链表的第一个元素
-    public E getFirst(){
+    public E getFirst() {
         return get(0);
     }
 
     //获得链表的最后一个元素
-    public E getLast(){
-        return get(size - 1 );
+    public E getLast() {
+        return get(size - 1);
     }
 
 
     //修改链表的第index个位置的元素
-    public void set(int index,E e){
-        if (index < 0 || index > size){
+    public void set(int index, E e) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed.Illegal index");
         }
-         Node cur = dummyHead.next;
-        for (int i = 0;i < index;i++){
+        Node cur = dummyHead.next;
+        for (int i = 0; i < index; i++) {
             cur = cur.next;
         }
-        cur.e  = e;
+        cur.e = e;
     }
 
     //查找链表中是否有某个元素
-    public boolean contains(E e){
-        for (Node cur = dummyHead.next;cur != null;cur = cur.next){
-            if (cur.e.equals(e));{
+    public boolean contains(E e) {
+        for (Node cur = dummyHead.next; cur != null; cur = cur.next) {
+            if (cur.e.equals(e)) ;
+            {
                 return true;
             }
         }
@@ -123,27 +123,27 @@ public class LinkedList<E> {
     }
 
     //从链表中删除index位置的元素
-    public E remove(int index){
-        if (index < 0 || index > size){
+    public E remove(int index) {
+        if (index < 0 || index > size) {
             throw new IllegalArgumentException("Add failed.Illegal index");
         }
         Node prev = dummyHead;
         Node delnode = dummyHead;
-        for (int i = 0;i < index;i++){
+        for (int i = 0; i < index; i++) {
             prev = prev.next;
         }
         delnode = prev.next;
         prev.next = delnode.next;
         delnode.next = null;
-        size --;
+        size--;
         return prev.e;
     }
 
-    public E removeFirst(){
+    public E removeFirst() {
         return remove(0);
     }
 
-    public E removeLast(){
+    public E removeLast() {
         return remove(size - 1);
     }
 
@@ -151,7 +151,7 @@ public class LinkedList<E> {
     public String toString() {
         StringBuilder res = new StringBuilder();
         Node cur = dummyHead.next;
-        while (cur != null){
+        while (cur != null) {
             res.append(cur + "->");
             cur = cur.next;
         }
@@ -160,8 +160,8 @@ public class LinkedList<E> {
     }
 
     public static void main(String[] args) {
-        LinkedListQueue<Integer>linkedListQueue = new LinkedListQueue<>();
-        for (int i = 0;i<10;i++){
+        LinkedListQueue<Integer> linkedListQueue = new LinkedListQueue<>();
+        for (int i = 0; i < 10; i++) {
             linkedListQueue.enqueue(i);
             System.out.println(linkedListQueue);
 

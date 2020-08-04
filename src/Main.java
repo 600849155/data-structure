@@ -3,14 +3,14 @@ import java.util.Random;
 public class Main {
 
 
-    private static double testQueue(Queue<Integer>q,int opCount){
+    private static double testQueue(Queue<Integer> q, int opCount) {
         long startTime = System.nanoTime();
 
         Random random = new Random();
-        for (int i = 0;i < opCount;i ++){
+        for (int i = 0; i < opCount; i++) {
             q.enqueue(random.nextInt(Integer.MAX_VALUE));//生成[0，int能表示最大值)的数
         }
-        for(int i =0;i < opCount;i ++){
+        for (int i = 0; i < opCount; i++) {
             q.dequeue();
         }
         long endTime = System.nanoTime();
@@ -18,20 +18,21 @@ public class Main {
         return (endTime - startTime) / 1000000000.0;
     }
 
-    private static double testStack(Stack<Integer>stack,int opCount){
+    private static double testStack(Stack<Integer> stack, int opCount) {
         long startTime = System.nanoTime();
 
         Random random = new Random();
-        for (int i = 0;i < opCount;i ++){
+        for (int i = 0; i < opCount; i++) {
             stack.push(random.nextInt(Integer.MAX_VALUE));//生成[0，int能表示最大值)的数
         }
-        for(int i =0;i < opCount;i ++){
-           stack.pop();
+        for (int i = 0; i < opCount; i++) {
+            stack.pop();
         }
         long endTime = System.nanoTime();
 
         return (endTime - startTime) / 1000000000.0;
     }
+
     public static void main(String[] args) {
         /**
          * 数组
@@ -90,16 +91,16 @@ public class Main {
 //        ll.removeLast();
 //        System.out.println(ll);
 
-        ArrayStack<Integer>arrayStack = new ArrayStack<>();
-        double time1 = testStack(arrayStack,opCount);
+        ArrayStack<Integer> arrayStack = new ArrayStack<>();
+        double time1 = testStack(arrayStack, opCount);
         System.out.println("ArrayStack, time: " + time1 + " s");
 
-        LinkedListStack<Integer>linkedListStack = new LinkedListStack<>();
-        double time2 = testStack(linkedListStack,opCount);
+        LinkedListStack<Integer> linkedListStack = new LinkedListStack<>();
+        double time2 = testStack(linkedListStack, opCount);
         System.out.println("LinkedListStack, time: " + time2 + " s");
         /**
-        * 二叉树
-        */
+         * 二叉树
+         */
 //        BST<com.Integer>bst = new BST<com.Integer>();
 //        int[] nums = {5,3,6,8,4,2};
 //        for (int num:nums)
@@ -127,8 +128,6 @@ public class Main {
 
 //        System.out.println( bst.removeMin());
 //        System.out.println(bst.removeMax());
-
-
 
 
     }

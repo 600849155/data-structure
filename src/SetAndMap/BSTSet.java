@@ -1,10 +1,10 @@
 package SetAndMap;
 
-public class BSTSet<E extends  Comparable<E>> implements Set<E> {
+public class BSTSet<E extends Comparable<E>> implements Set<E> {
 
     private BST<E> bst;
 
-    public BSTSet(){
+    public BSTSet() {
         bst = new BST<>();
     }
 

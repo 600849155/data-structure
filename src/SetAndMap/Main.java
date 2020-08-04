@@ -4,14 +4,14 @@ package SetAndMap;
 import java.util.ArrayList;
 
 public class Main {
-    private static double testSet(Set<String>set,String filename){
+    private static double testSet(Set<String> set, String filename) {
         long startTime = System.nanoTime();
         System.out.println(filename);
         ArrayList<String> words = new ArrayList<>();
-        if ( FileOperation.readFile(filename,words)){
+        if (FileOperation.readFile(filename, words)) {
             System.out.println("Total words: " + words.size());
 
-            for (String word : words){
+            for (String word : words) {
                 set.add(word);
             }
             System.out.println("Total different words: " + set.getSize());
@@ -21,17 +21,18 @@ public class Main {
 
         return (endTime - startTime) / 100000000.0;
     }
+
     public static void main(String[] args) {
         String filename = "Pride and Prejudice";
 
-        BSTSet<String>bstSet = new BSTSet<>();
-        double time1 = testSet(bstSet,filename);
+        BSTSet<String> bstSet = new BSTSet<>();
+        double time1 = testSet(bstSet, filename);
         System.out.println("BST Set: " + time1);
 
         System.out.println();
 
-        LinkedListSet<String>linkedListSet = new LinkedListSet<>();
-        double time2 = testSet(linkedListSet,filename);
+        LinkedListSet<String> linkedListSet = new LinkedListSet<>();
+        double time2 = testSet(linkedListSet, filename);
         System.out.println("Linked List Set: " + time2);
 
 

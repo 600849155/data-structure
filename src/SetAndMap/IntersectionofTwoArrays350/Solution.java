@@ -16,9 +16,9 @@ class Solution {
         ArrayList<Integer> list = new ArrayList<>();
 
         for (int num : nums2) {
-            if (map.containsKey(num)){
+            if (map.containsKey(num)) {
                 list.add(num);
-                map.put(num,map.get(num) - 1);
+                map.put(num, map.get(num) - 1);
                 if (map.get(num) == 0)
                     map.remove(num);
             }

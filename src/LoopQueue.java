@@ -2,21 +2,21 @@ public class LoopQueue<E> implements Queue<E> {
 
 
     private E[] data;
-    private int front,tail;//前后指针
+    private int front, tail;//前后指针
     private int size;//有多少个成员变量
 
-    public LoopQueue(int capacity){
+    public LoopQueue(int capacity) {
         data = (E[]) new Object[capacity + 1];
         front = 0;
         tail = 0;
         size = 0;
     }
 
-    public LoopQueue(){
+    public LoopQueue() {
         this(10);
     }
 
-    public int getCapacity(){
+    public int getCapacity() {
         return data.length - 1;
     }
 
@@ -28,6 +28,7 @@ public class LoopQueue<E> implements Queue<E> {
     /**
      * 进队列
      * 例如队列长度3 tail在0的位置，front在1 （0+1）%3余1 说明队列已满
+     *
      * @param e 元素
      */
     @Override
@@ -37,7 +38,7 @@ public class LoopQueue<E> implements Queue<E> {
         }
         data[tail] = e;//尾指针指向进队列的元素e
         tail = (tail + 1) % data.length;
-        size ++;
+        size++;
 
     }
 
@@ -45,11 +46,12 @@ public class LoopQueue<E> implements Queue<E> {
      * 将data[]数组内容复制到newData[]上
      * i + front 从front指针位置开始复制
      * % data.length防止超出data数组长度从而把tail指针后的数组重复复制到newDate上
+     *
      * @param newCapacity
      */
     private void resize(int newCapacity) {
         E[] newData = (E[]) new Object[newCapacity + 1];
-        for (int i = 0 ;i < size ; i++){
+        for (int i = 0; i < size; i++) {
             newData[i] = data[(i + front) % data.length];
         }
         data = newData;
@@ -62,18 +64,19 @@ public class LoopQueue<E> implements Queue<E> {
 
     /**
      * 出队列
+     *
      * @return
      */
     @Override
     public E dequeue() {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new IllegalArgumentException("Cannot dequeue from am empty queue.");
         }
         E ret = data[front];
         data[front] = null;
         front = (front + 1) % data.length;
-        size --;
-        if (size == getCapacity() / 4 && getCapacity() / 2 != 0){
+        size--;
+        if (size == getCapacity() / 4 && getCapacity() / 2 != 0) {
             resize(getCapacity() / 2);
         }
         return ret;
@@ -81,7 +84,7 @@ public class LoopQueue<E> implements Queue<E> {
 
     @Override
     public E getFront() {
-        if (isEmpty()){
+        if (isEmpty()) {
             throw new IllegalArgumentException("Cannot dequeue from am empty queue.");
         }
         return data[front];
@@ -95,11 +98,11 @@ public class LoopQueue<E> implements Queue<E> {
     @Override
     public String toString() {
         StringBuilder res = new StringBuilder();
-        res.append(String.format("LoopQueue: size = %d, capacity = %d\n",size,getCapacity()));
+        res.append(String.format("LoopQueue: size = %d, capacity = %d\n", size, getCapacity()));
         res.append("front [");
-        for (int i = front;i != tail;i=(i + 1)%data.length){
+        for (int i = front; i != tail; i = (i + 1) % data.length) {
             res.append(data[i]);
-            if ((i+1)%data.length != tail){
+            if ((i + 1) % data.length != tail) {
                 res.append(",");
             }
         }
@@ -109,8 +112,8 @@ public class LoopQueue<E> implements Queue<E> {
 
 
     public static void main(String[] args) {
-        LoopQueue<Integer>queue = new LoopQueue<>();
-        for (int i = 0;i<10;i++){
+        LoopQueue<Integer> queue = new LoopQueue<>();
+        for (int i = 0; i < 10; i++) {
             queue.enqueue(i);
             System.out.println(queue);
 

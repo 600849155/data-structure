@@ -3,8 +3,8 @@ package Usally;
 public class ArraySort {
     //冒泡
     public static void bubbleSort(int[] arr) {
-		/*两个for循环嵌套，
-		 *外面的for循环决定一个长度为m的数据要比较多少轮才能完成排序。
+                        /*两个for循环嵌套，
+                         *外面的for循环决定一个长度为m的数据要比较多少轮才能完成排序。
 		 *利用举例归类的方式，比如长度为5、8、9，需要4（第一轮：1和2，2和3，3和4，4和5；
 		 *第二轮：1和2，2和3，3和4，5号位置已经上一次中排列好，不需要在参与比较；第三轮：1和2
 		 *，2和3；第四轮：1和2）,7,8轮;
@@ -22,6 +22,9 @@ public class ArraySort {
         }
     }
 
+    public static void main(String[] args) {
+
+    }
     //选择
     public static void selectSort(int[] arr) {
 		/*

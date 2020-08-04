@@ -61,8 +61,9 @@ public class BST<E extends Comparable<E>> {
     }
 
     private boolean contains(Node node,E e){
-        if (node == null)
+        if (node == null) {
             return false;
+        }
 
         if (e.compareTo(node.e) == 0)
             return false;
@@ -73,7 +74,6 @@ public class BST<E extends Comparable<E>> {
 
 
     }
-
 
    //二分搜索树的前序遍历
    public void preOrder(){
@@ -94,7 +94,7 @@ public class BST<E extends Comparable<E>> {
 
     //前序遍历以root为根的二分搜索树，非递归算法
     public void preOrderNR(){
-        Stack<Node>stack = new Stack<Node>();
+        Stack<Node>stack = new Stack<>();
         stack.push(root);
         while (!stack.isEmpty()){
             Node cur = stack.pop();
@@ -139,7 +139,7 @@ public class BST<E extends Comparable<E>> {
 
     //二分搜索树的层序遍历
     public void levelOrder(){
-        Queue<Node> q = new LinkedList<Node>();
+        Queue<Node> q = new LinkedList<>();
         q.add(root);
         while (!q.isEmpty()){
             Node cur = q.remove();

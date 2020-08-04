@@ -43,30 +43,30 @@ public class MaxHeap<E extends Comparable<E>> {
     }
 
     //向堆中添加元素
-    public void add(E e){
+    public void add(E e) {
         data.addLast(e);
-        siftUp(data.getSize() - 1 );
+        siftUp(data.getSize() - 1);
     }
 
     private void siftUp(int k) {
-        while(k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0){
-            data.swap(k,parent(k));
+        while (k > 0 && data.get(parent(k)).compareTo(data.get(k)) < 0) {
+            data.swap(k, parent(k));
             k = parent(k);
         }
     }
 
     //看堆中的最大元素
-    public E findMax(){
+    public E findMax() {
         if (data.getSize() == 0)
             throw new IllegalArgumentException("Can not find maxEle when size == 0");
-       return data.get(0);
+        return data.get(0);
     }
-    
+
     //取出堆中最大元素
-    public E extractMax(){
+    public E extractMax() {
         E ret = findMax();
-        
-        data.swap(0,data.getSize() - 1);
+
+        data.swap(0, data.getSize() - 1);
         data.removeLast();
         siftDown(0);
         return ret;
@@ -74,16 +74,16 @@ public class MaxHeap<E extends Comparable<E>> {
 
     private void siftDown(int k) {
 
-        while (leftChild(k) < data.getSize()){
+        while (leftChild(k) < data.getSize()) {
 
             int j = leftChild(k);
-            if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) > 0){
+            if (j + 1 < data.getSize() && data.get(j + 1).compareTo(data.get(j)) > 0) {
                 j = rightChild(k);
             }
-            if (data.get(k).compareTo(data.get(j)) >= 0){
+            if (data.get(k).compareTo(data.get(j)) >= 0) {
                 break;
             }
-            data.swap(k,j);
+            data.swap(k, j);
             k = j;
         }
     }

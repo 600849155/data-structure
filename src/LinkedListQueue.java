@@ -23,10 +23,10 @@ public class LinkedListQueue<E> implements Queue<E> {
         }
     }
 
-    private Node head,tail;
+    private Node head, tail;
     private int size;
 
-    public LinkedListQueue(){
+    public LinkedListQueue() {
         head = null;
         tail = null;
         size = 0;
@@ -44,14 +44,14 @@ public class LinkedListQueue<E> implements Queue<E> {
 
     @Override
     public void enqueue(E e) {//进队
-        if (tail == null){
+        if (tail == null) {
             tail = new Node(e);
             head = tail;
-        }else {
+        } else {
             tail.next = new Node(e);
             tail = tail.next;
         }
-        size ++;
+        size++;
 
     }
 
@@ -63,17 +63,17 @@ public class LinkedListQueue<E> implements Queue<E> {
         Node retNode = head;
         head = head.next;
         retNode.next = null;//retNode与下一节点断开连接
-        if (head == null){
+        if (head == null) {
             tail = null;
         }
-        size --;
+        size--;
         return retNode.e;
     }
 
     @Override
     public E getFront() {
-        if (isEmpty()){
-            throw  new IllegalArgumentException("Queue is Empty!");
+        if (isEmpty()) {
+            throw new IllegalArgumentException("Queue is Empty!");
         }
         return head.e;
     }
@@ -83,7 +83,7 @@ public class LinkedListQueue<E> implements Queue<E> {
         StringBuilder res = new StringBuilder();
         res.append("Queue: front ");
         Node cur = head;
-        while (cur != null){
+        while (cur != null) {
             res.append(cur + "->");
             cur = cur.next;
         }

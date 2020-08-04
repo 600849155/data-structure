@@ -3,24 +3,24 @@
 /**
  * Definition for singly-linked list.
  * public class ListNode {
- *     int val;
- *     ListNode next;
- *     ListNode(int x) { val = x; }
+ * int val;
+ * ListNode next;
+ * ListNode(int x) { val = x; }
  * }
  */
-class Solution3{
+class Solution3 {
     public ListNode removeElements(ListNode head, int val, int depth) {
         String depthString = generateDepthString(depth);
         System.out.println(depthString);
         System.out.println("Call: remove " + val + " in " + head);
-        if (head == null){
+        if (head == null) {
             System.out.println(depthString);
-            System.out.println("Return: "+ head);
+            System.out.println("Return: " + head);
             return head;
         }
-        ListNode res = removeElements(head.next,val,depth + 1);
+        ListNode res = removeElements(head.next, val, depth + 1);
         System.out.println(depthString);
-        System.out.println("After remove " + val +" : " + res);
+        System.out.println("After remove " + val + " : " + res);
         ListNode ret;
         if (head.val == val)
             ret = res;
@@ -35,17 +35,17 @@ class Solution3{
 
     private String generateDepthString(int depth) {
         StringBuilder res = new StringBuilder();
-        for (int i = 0;i < depth ; i ++){
+        for (int i = 0; i < depth; i++) {
             res.append("--");
         }
         return res.toString();
     }
 
     public static void main(String[] args) {
-        int[] nums = {1,2,6,3,4,5,6};
+        int[] nums = {1, 2, 6, 3, 4, 5, 6};
         ListNode head = new ListNode(nums);
         System.out.println(head);
-        ListNode res = (new Solution3().removeElements(head,6,0));
+        ListNode res = (new Solution3().removeElements(head, 6, 0));
         System.out.println(res);
     }
 }

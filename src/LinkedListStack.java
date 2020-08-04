@@ -1,7 +1,7 @@
 public class LinkedListStack<E> implements Stack<E> {
     private LinkedList<E> list;
 
-    public LinkedListStack(){
+    public LinkedListStack() {
         list = new LinkedList<>();
     }
 
@@ -17,7 +17,7 @@ public class LinkedListStack<E> implements Stack<E> {
 
     @Override
     public void push(E e) {
-       list.addFirst(e);
+        list.addFirst(e);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class LinkedListStack<E> implements Stack<E> {
 
     public static void main(String[] args) {
         LinkedListStack<Integer> stack = new LinkedListStack<>();
-        for (int i =0;i<5;i++){
+        for (int i = 0; i < 5; i++) {
             stack.push(i);
             System.out.println(stack);
         }
